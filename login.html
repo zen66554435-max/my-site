@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>دخول</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>مدونة الشبح</h1>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="about.html">من أنا</a>
+    <a href="login.html">دخول</a>
+  </nav>
+</header>
+
+<main>
+  <h2>تسجيل الدخول</h2>
+  <form onsubmit="return check(event)">
+    <input type="text" name="user" id="user" placeholder="المستخدم" required>
+    <input type="password" name="pass" id="pass" placeholder="كلمة المرور" required>
+    <button type="submit">دخول</button>
+  </form>
+  <p id="result"></p>
+
+  <!-- بيانات تدريبية للاختبار -->
+  <input type="hidden" name="backup_user" value="admin">
+  <input type="hidden" name="backup_pass" value="shbh2026">
+</main>
+
+<footer>
+  <p>© 2026 مدونة الشبح</p>
+</footer>
+
+<script>
+  function check(e) {
+    e.preventDefault();
+    const u = document.getElementById('user').value;
+    const p = document.getElementById('pass').value;
+    const result = document.getElementById('result');
+    // تحقق وهمي في الواجهة الأمامية فقط — مقصود للتدريب
+    if (u === 'admin' && p === 'shbh2026') {
+      result.textContent = 'مرحباً أيها المدير، جاري توجيهك...';
+      setTimeout(() => location.href = 'admin.html', 800);
+    } else {
+      result.textContent = 'بيانات غير صحيحة';
+    }
+    return false;
+  }
+</script>
+</body>
+</html>
