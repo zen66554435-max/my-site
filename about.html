@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>من أنا</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>مدونة الشبح</h1>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="about.html">من أنا</a>
+    <a href="login.html">دخول</a>
+  </nav>
+</header>
+
+<main>
+  <h2>من أنا</h2>
+  <p>اسمي الشبح. أكتب، أبرمج، وأشرب قهوة باردة.</p>
+  <p>هذه المدونة للتدريب فقط.</p>
+
+  <h3>تواصل</h3>
+  <form onsubmit="alert('تم الإرسال'); return false;">
+    <input type="text" placeholder="اسمك" name="name" required>
+    <input type="email" placeholder="بريدك" name="email" required>
+    <textarea placeholder="رسالتك" name="msg" rows="4" required></textarea>
+    <button type="submit">أرسل</button>
+  </form>
+
+  <p id="search-hint">جرب البحث: <code>?search=test</code></p>
+  <div id="search-result"></div>
+</main>
+
+<footer>
+  <p>© 2026 مدونة الشبح</p>
+</footer>
+
+<script>
+  // عرض نتيجة البحث بدون تنقية — مقصود للتدريب
+  const params = new URLSearchParams(location.search);
+  const q = params.get('search');
+  if (q) {
+    document.getElementById('search-result').innerHTML = 'نتائج البحث عن: ' + q;
+  }
+</script>
+</body>
+</html>
